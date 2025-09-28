@@ -39,7 +39,7 @@ const highlightCards = [
 export default function Home() {
   const shouldReduceMotion = useReducedMotion();
   const initialState = shouldReduceMotion ? "visible" : "hidden";
-  const transition = { duration: 0.7, ease: [0.22, 1, 0.36, 1] };
+  const transition = { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const };
 
   const fadeUp = {
     hidden: { opacity: 0, y: 24 },
@@ -53,7 +53,7 @@ export default function Home() {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
         delay: shouldReduceMotion ? 0 : index * 0.1,
       },
     }),
@@ -66,12 +66,12 @@ export default function Home() {
         <div className="absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(circle_at_center,_rgba(56,189,248,0.18)_0%,_rgba(5,7,13,0)_70%)]" />
       </div>
 
-      <main className="mx-auto flex max-w-[1200px] flex-col gap-20 px-6 pb-16 pt-12 lg:px-10 lg:pt-16">
+      <main className="mx-auto flex max-w-[1200px] flex-col gap-12 px-4 pb-16 pt-8 sm:gap-16 sm:px-6 lg:gap-20 lg:px-10 lg:pt-16">
         <motion.section
           initial={initialState}
           animate="visible"
           variants={fadeUp}
-          className="relative overflow-hidden rounded-[36px] border border-slate-800/80 bg-slate-900/85 p-10 shadow-[0_40px_120px_rgba(3,5,10,0.65)]"
+          className="relative overflow-hidden rounded-[24px] border border-slate-800/80 bg-slate-900/85 p-6 shadow-[0_40px_120px_rgba(3,5,10,0.65)] sm:rounded-[32px] sm:p-8 lg:rounded-[36px] lg:p-10"
         >
           <HeroParticles />
           <div className="relative z-10 flex flex-col gap-8 lg:flex-row lg:items-center">
@@ -79,10 +79,10 @@ export default function Home() {
               <div className="inline-flex items-center gap-2 rounded-full border border-slate-700/80 bg-slate-900/70 px-4 py-1 text-xs uppercase tracking-[0.3em] text-slate-400">
                 Rimex Medya
               </div>
-              <h1 className="text-4xl leading-tight sm:text-5xl">
+              <h1 className="text-2xl leading-tight sm:text-3xl md:text-4xl lg:text-5xl">
                 Rimex Medya ile sosyal medya, eğitim, web ve prodüksiyon ihtiyaçlarınızı tek merkezde çözün.
               </h1>
-              <p className="max-w-xl text-base text-slate-300 sm:text-lg">
+              <p className="max-w-xl text-sm text-slate-300 sm:text-base lg:text-lg">
                 Ajans ekibimiz; sosyal medya yönetiminden internet sitesi tasarımına, bilgisayar bakım desteklerinden drone çekimlerine kadar tüm hizmetleri uçtan uca yönetir. Yapay zekâ tasarım eğitimleri, influencer koçluğu ve sektörel prodüksiyon çözümleriyle işletmenizi dijitalde bir üst seviyeye taşır.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
@@ -105,7 +105,7 @@ export default function Home() {
               animate="visible"
               variants={fadeUp}
               transition={{ ...transition, delay: shouldReduceMotion ? 0 : 0.2 }}
-              className="flex-1 rounded-3xl border border-slate-800/70 bg-slate-950/40 p-6 backdrop-blur"
+              className="flex-1 rounded-2xl border border-slate-800/70 bg-slate-950/40 p-4 backdrop-blur sm:rounded-3xl sm:p-6"
             >
               <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
                 Güven veren rakamlar
@@ -143,7 +143,7 @@ export default function Home() {
           initial={initialState}
           animate="visible"
           variants={fadeUp}
-          className="grid gap-6 lg:grid-cols-2"
+          className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-2"
         >
           {highlightCards.map((card, index) => (
             <motion.div
@@ -152,11 +152,11 @@ export default function Home() {
               initial={initialState}
               animate="visible"
               variants={cardVariants}
-              className="group relative flex flex-col gap-4 rounded-3xl border border-slate-800 bg-slate-900/70 p-8 transition hover:-translate-y-1 hover:border-[#38bdf8]/40 hover:bg-slate-900"
+              className="group relative flex flex-col gap-4 rounded-2xl border border-slate-800 bg-slate-900/70 p-6 transition hover:-translate-y-1 hover:border-[#38bdf8]/40 hover:bg-slate-900 sm:rounded-3xl sm:p-8"
             >
               <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-br from-transparent via-transparent to-[#38bdf8]/10 opacity-0 transition group-hover:opacity-100" />
-              <h3 className="text-2xl font-semibold text-white">{card.title}</h3>
-              <p className="text-sm text-slate-400">{card.description}</p>
+              <h3 className="text-lg font-semibold text-white sm:text-xl lg:text-2xl">{card.title}</h3>
+              <p className="text-xs text-slate-400 sm:text-sm">{card.description}</p>
               <Link
                 href={card.href}
                 className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[#38bdf8] transition hover:text-[#0ea5e9]"

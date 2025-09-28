@@ -28,7 +28,7 @@ export function HeroParticles() {
             duration: 6 + index * 0.6,
             repeat: Infinity,
             delay: particle.delay,
-            ease: [0, 0, 1, 1],
+            ease: [0, 0, 1, 1] as const,
           }}
         />
       ))}

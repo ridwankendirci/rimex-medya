@@ -36,7 +36,7 @@ export function SplashScreen() {
           exit={{ opacity: 0 }}
           transition={{
             duration: 0.5,
-            ease: [0.22, 1, 0.36, 1],
+            ease: [0.22, 1, 0.36, 1] as const,
           }}
           className="fixed inset-0 z-50 flex items-center justify-center bg-black"
         >
@@ -47,7 +47,7 @@ export function SplashScreen() {
               duration: 1.4,
               repeat: Infinity,
               repeatType: "loop",
-              ease: [0.42, 0, 0.58, 1],
+              ease: [0.42, 0, 0.58, 1] as const,
             }}
             className="relative h-44 w-[32rem] sm:h-56 sm:w-[40rem]"
           >

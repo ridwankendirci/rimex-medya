@@ -7,7 +7,7 @@ const fadeUp = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
@@ -35,15 +35,15 @@ export default function ContactPage() {
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-[#0f172a] via-[#09101f] to-[#04070d] text-slate-100">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.14)_0%,_rgba(4,7,13,0.92)_70%)]" />
-      <section className="mx-auto flex max-w-[1080px] flex-col gap-14 px-6 pb-20 pt-16 lg:px-10 lg:pt-20">
+      <section className="mx-auto flex max-w-[1080px] flex-col gap-10 px-4 pb-16 pt-12 sm:gap-12 sm:px-6 lg:gap-14 lg:px-10 lg:pt-20">
         <motion.header initial={initial} animate="visible" variants={fadeUp} className="space-y-6">
           <span className="inline-flex items-center gap-2 rounded-full border border-slate-800/70 bg-slate-900/60 px-4 py-1 text-xs uppercase tracking-[0.3em] text-slate-400">
             İletişim
           </span>
-          <h1 className="text-4xl font-semibold sm:text-5xl">
+          <h1 className="text-2xl font-semibold sm:text-3xl md:text-4xl lg:text-5xl">
             Sosyal medya, web tasarım, eğitim ve prodüksiyon projeleriniz için bize ulaşın
           </h1>
-          <p className="max-w-2xl text-slate-300">
+          <p className="max-w-2xl text-sm text-slate-300 sm:text-base">
             Rimex Medya ekibi; sosyal medya yönetimi, internet sitesi kurulumları, drone çekimleri ve bilgisayar teknik destek projelerinizde size özel yol haritası hazırlar. Formu doldurun ya da arayın, ihtiyacınızı birlikte planlayalım.
           </p>
           <div className="flex flex-wrap gap-3">
@@ -55,15 +55,15 @@ export default function ContactPage() {
           </div>
         </motion.header>
 
-        <div className="grid gap-10 lg:grid-cols-3">
+        <div className="grid gap-8 lg:grid-cols-3">
           <motion.div
             initial={initial}
             animate="visible"
             variants={fadeUp}
-            transition={{ delay: shouldReduceMotion ? 0 : 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-2 space-y-6 rounded-[32px] border border-slate-800 bg-slate-900/70 p-10 shadow-[0_28px_90px_rgba(3,5,10,0.6)]"
+            transition={{ delay: shouldReduceMotion ? 0 : 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+            className="lg:col-span-2 space-y-6 rounded-[20px] border border-slate-800 bg-slate-900/70 p-6 shadow-[0_28px_90px_rgba(3,5,10,0.6)] sm:rounded-[28px] sm:p-8 lg:rounded-[32px] lg:p-10"
           >
-            <h2 className="text-2xl font-semibold text-white">İletişim Formu</h2>
+            <h2 className="text-xl font-semibold text-white sm:text-2xl">İletişim Formu</h2>
             <p className="text-sm text-slate-400">
               Dilerseniz formu doldurun, ekip üyemiz en geç 1 iş günü içinde dönüş yapsın.
             </p>
@@ -107,7 +107,7 @@ export default function ContactPage() {
             initial={initial}
             animate="visible"
             variants={fadeUp}
-            transition={{ delay: shouldReduceMotion ? 0 : 0.2, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ delay: shouldReduceMotion ? 0 : 0.2, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
             className="flex flex-col gap-6"
           >
             {contactChannels.map((channel, index) => (

@@ -77,7 +77,7 @@ export function BackgroundOrbs() {
             duration: orb.duration,
             repeat: Infinity,
             repeatType: "reverse",
-            ease: [0.42, 0, 0.58, 1],
+            ease: [0.42, 0, 0.58, 1] as const,
             delay: orb.delay,
           }}
         />
