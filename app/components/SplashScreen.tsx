@@ -34,13 +34,21 @@ export function SplashScreen() {
           initial={{ opacity: 1 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          transition={{
+            duration: 0.5,
+            ease: [0.22, 1, 0.36, 1],
+          }}
           className="fixed inset-0 z-50 flex items-center justify-center bg-black"
         >
           <motion.div
             initial={{ scale: 0.88, opacity: 1 }}
             animate={{ scale: [0.88, 1.15, 0.88] }}
-            transition={{ duration: 1.4, repeat: Infinity, repeatType: "loop", ease: "easeInOut" }}
+            transition={{
+              duration: 1.4,
+              repeat: Infinity,
+              repeatType: "loop",
+              ease: [0.42, 0, 0.58, 1],
+            }}
             className="relative h-44 w-[32rem] sm:h-56 sm:w-[40rem]"
           >
             <Image

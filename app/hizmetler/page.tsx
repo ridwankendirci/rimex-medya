@@ -5,7 +5,11 @@ import { services } from "@/lib/content";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+  },
 };
 
 const cardVariants = {
@@ -13,7 +17,7 @@ const cardVariants = {
   visible: (index: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut", delay: index * 0.08 },
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: index * 0.08 },
   }),
 };
 

@@ -24,7 +24,12 @@ export function HeroParticles() {
           style={{ top: particle.top, left: particle.left, width: particle.size, height: particle.size }}
           initial={{ opacity: 0, y: 0 }}
           animate={{ opacity: [0.15, 0.8, 0.2], y: [-4, 6, -4] }}
-          transition={{ duration: 6 + index * 0.6, repeat: Infinity, delay: particle.delay, ease: "linear" }}
+          transition={{
+            duration: 6 + index * 0.6,
+            repeat: Infinity,
+            delay: particle.delay,
+            ease: [0, 0, 1, 1],
+          }}
         />
       ))}
     </div>

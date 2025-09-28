@@ -4,7 +4,11 @@ import { motion, useReducedMotion } from "framer-motion";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+  },
 };
 
 const contactChannels = [
@@ -56,7 +60,7 @@ export default function ContactPage() {
             initial={initial}
             animate="visible"
             variants={fadeUp}
-            transition={{ delay: shouldReduceMotion ? 0 : 0.1, duration: 0.6, ease: "easeOut" }}
+            transition={{ delay: shouldReduceMotion ? 0 : 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-2 space-y-6 rounded-[32px] border border-slate-800 bg-slate-900/70 p-10 shadow-[0_28px_90px_rgba(3,5,10,0.6)]"
           >
             <h2 className="text-2xl font-semibold text-white">İletişim Formu</h2>
@@ -103,7 +107,7 @@ export default function ContactPage() {
             initial={initial}
             animate="visible"
             variants={fadeUp}
-            transition={{ delay: shouldReduceMotion ? 0 : 0.2, duration: 0.6, ease: "easeOut" }}
+            transition={{ delay: shouldReduceMotion ? 0 : 0.2, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col gap-6"
           >
             {contactChannels.map((channel, index) => (

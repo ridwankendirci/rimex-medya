@@ -39,7 +39,7 @@ const highlightCards = [
 export default function Home() {
   const shouldReduceMotion = useReducedMotion();
   const initialState = shouldReduceMotion ? "visible" : "hidden";
-  const transition = { duration: 0.7, ease: "easeOut" };
+  const transition = { duration: 0.7, ease: [0.22, 1, 0.36, 1] };
 
   const fadeUp = {
     hidden: { opacity: 0, y: 24 },
@@ -51,7 +51,11 @@ export default function Home() {
     visible: (index: number) => ({
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut", delay: shouldReduceMotion ? 0 : index * 0.1 },
+      transition: {
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1],
+        delay: shouldReduceMotion ? 0 : index * 0.1,
+      },
     }),
   };
 
